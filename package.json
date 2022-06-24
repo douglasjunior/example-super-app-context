@@ -9,6 +9,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "sync-with-core": "npx sync-with-core",
+    "upgrade-app-modules": "npx upgrade-app-modules",
     "pod-install": "npm_config_yes=true npx pod-install",
     "postinstall": "node -e \"let myLibAsDep = !require('fs').existsSync('.git'); if (!myLibAsDep) process.exit(1);\" || npm run pod-install"
   },
@@ -30,6 +32,7 @@
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
     "babel-jest": "26.6.3",
+    "example-super-app-tools": "git+https://github.com/douglasjunior/example-super-app-tools.git",
     "eslint": "7.32.0",
     "jest": "26.6.3",
     "metro-react-native-babel-preset": "0.67.0",
