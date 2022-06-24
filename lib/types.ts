@@ -17,6 +17,12 @@ export type ProviderPropsType = {
 };
 export type ProviderType = import('react').FC<ProviderPropsType>;
 export type AppContextValueType = {
-  setLogin: (login: LoginType) => void;
   login: LoginType;
+  /**
+   * Funções espostas dentro do objeto `private` não devem ser invocadas
+   * fora do core.
+   */
+  private: {
+    setLogin: (login: LoginType) => void;
+  };
 };

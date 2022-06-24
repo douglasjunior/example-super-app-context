@@ -2,8 +2,8 @@ import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import NavigatorParamList from './types';
-import LoginScreen from '../domains/login/LoginScreen';
 import HomeScreen from '../domains/home/HomeScreen';
+import LoginScreen from '../../mock/login/LoginScreen';
 
 const Stack = createNativeStackNavigator<NavigatorParamList>();
 

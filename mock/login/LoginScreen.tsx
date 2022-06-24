@@ -1,8 +1,8 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useCallback} from 'react';
 import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {useAppContext} from '../../../lib';
-import {LoginType} from '../../../lib/types';
-import {useNativeStackNavigation} from '../../hooks/useNavigation';
+import {useAppContext} from '../../lib';
+import {LoginType} from '../../lib/types';
 
 const styles = StyleSheet.create({
   context: {
@@ -24,8 +24,10 @@ const MOCKED_USER: LoginType = {
 };
 
 const LoginScreen: React.FC = () => {
-  const navigation = useNativeStackNavigation();
-  const {setLogin} = useAppContext();
+  const navigation = useNavigation<any>();
+  const {
+    private: {setLogin},
+  } = useAppContext();
 
   const handlePress = useCallback(() => {
     setLogin(MOCKED_USER);
