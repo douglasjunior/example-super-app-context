@@ -1,5 +1,5 @@
 {
-  "name": "example-super-app-mock",
+  "name": "example-super-app-context",
   "version": "0.0.1",
   "private": true,
   "main": "lib/index.ts",
