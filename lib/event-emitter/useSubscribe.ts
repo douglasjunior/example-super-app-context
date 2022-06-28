@@ -6,10 +6,10 @@ const useSubscribe = (
   callback: (...args: unknown[]) => unknown,
 ) => {
   useEffect(() => {
-    const listener = emitter.addListener(eventType, callback);
+    emitter.addListener(eventType, callback);
 
     return () => {
-      listener.remove();
+      emitter.removeListener(eventType, callback);
     };
   }, [eventType, callback]);
 };
