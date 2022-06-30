@@ -3,7 +3,9 @@ export type LoggedUserType = {
   name: string;
   email: string;
 };
-export type RoleType = {};
+export type RoleType = {
+  key: string;
+};
 export type LoginType = {
   loggedUser?: LoggedUserType;
   accessToken?: string;
@@ -25,4 +27,8 @@ export type AppContextValueType = {
   private: {
     setLogin: (login: LoginType) => void;
   };
+};
+
+export type SetupPropsType = {
+  appName?: string;
 };
