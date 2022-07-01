@@ -1,14 +1,24 @@
 import Reactotron, {ReactotronReactNative} from 'reactotron-react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+type ReactotronType = typeof Reactotron & ReactotronReactNative;
+
 declare global {
   interface Console {
-    tron: typeof Reactotron & ReactotronReactNative;
+    tron: ReactotronType;
   }
 }
 
-async function setupReactotron(appName?: string) {
+async function setupReactotron(enabled?: boolean, appName?: string) {
   if (!__DEV__) {
+    return;
+  }
+
+  if (!enabled) {
+    // Cria um fallback para imprimir no console as mensagens que serian enviadas para
+    // o Reactotron
+    console.tron = {} as ReactotronType;
+    Object.assign(console.tron, console);
     return;
   }
 
@@ -25,7 +35,34 @@ async function setupReactotron(appName?: string) {
 
   await reactotron.clear?.();
 
-  console.tron = reactotron;
+  const logFun = reactotron.log;
+  const logImportantFun = reactotron.logImportant;
+  const errorFun = reactotron.error;
+  const warnFun = reactotron.warn;
+  const debugFun = reactotron.debug;
+
+  console.tron = Object.assign(reactotron, {
+    log(...args: any[]) {
+      console.log(...args);
+      logFun?.(...args);
+    },
+    logImportant(...args: any[]) {
+      console.log('IMPORTANT:', ...args);
+      logImportantFun?.(...args);
+    },
+    error(message: any, stack: any) {
+      console.error(message, stack);
+      errorFun?.(message, stack);
+    },
+    warn(message: any) {
+      console.warn(message);
+      warnFun?.(message);
+    },
+    debug(message: any, important?: boolean) {
+      console.debug(message);
+      debugFun?.(message, important);
+    },
+  });
 }
 
 export default setupReactotron;

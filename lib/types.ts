@@ -31,4 +31,6 @@ export type AppContextValueType = {
 
 export type SetupPropsType = {
   appName?: string;
+  eventEmitterDebug?: boolean;
+  reactotron?: boolean;
 };
