@@ -1,3 +1,10 @@
+/**
+ * Função de exemplo de um "format".
+ * Aplica máscara a um número de CPF, parcial ou completo.
+ *
+ * @param value CPF puro ou já com máscara
+ * @returns CPF com máscara
+ */
 function maskCpf(value: string) {
   console.log({value});
   const cleaned = value.replace(/\D/g, '');
