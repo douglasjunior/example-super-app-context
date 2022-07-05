@@ -3005,6 +3005,10 @@ escodegen@^2.0.0:
   optionalDependencies:
     source-map "~0.6.1"
 
+"eslint-config-example-super-app@git+https://github.com/douglasjunior/eslint-config-example-super-app.git":
+  version "1.0.0"
+  resolved "git+https://github.com/douglasjunior/eslint-config-example-super-app.git#c2b4a34c0155a2a1a0e08ef4de3ac35c2e0a355c"
+
 eslint-config-prettier@^6.10.1:
   version "6.15.0"
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
@@ -3220,7 +3224,7 @@ events@3.3.0:
 
 "example-super-app-tools@git+https://github.com/douglasjunior/example-super-app-tools.git":
   version "1.0.0"
-  resolved "git+https://github.com/douglasjunior/example-super-app-tools.git#4e9385b75263d0124b9670cecc77f4eaccb988ee"
+  resolved "git+https://github.com/douglasjunior/example-super-app-tools.git#39c856083ee495743b1bd2c60748e99f7dae6fa8"
   dependencies:
     chokidar "3.5.3"
     node-fetch "2.6.7"

@@ -42,6 +42,7 @@
     "@typescript-eslint/parser": "5.17.0",
     "babel-jest": "26.6.3",
     "eslint": "7.32.0",
+    "eslint-config-example-super-app": "git+https://github.com/douglasjunior/eslint-config-example-super-app.git",
     "example-super-app-tools": "git+https://github.com/douglasjunior/example-super-app-tools.git",
     "jest": "26.6.3",
     "metro-react-native-babel-preset": "0.67.0",
