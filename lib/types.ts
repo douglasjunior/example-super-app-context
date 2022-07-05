@@ -14,8 +14,18 @@ export type LoginType = {
 };
 
 export type ProviderPropsType = {
-  children: import('react').ReactElement;
-  initialLogin?: LoginType;
+  children: import('react').ReactNode;
+  /**
+   * Dados inicais de login, pode ser utilizado para mock,
+   * ou para carregamento de dados Default.
+   */
+  login?: LoginType;
+  config?: SetupPropsType;
+  /**
+   * Conteúdo a ser exibido quando o setup do provider
+   * é realizado de forma assíncrona.
+   */
+  placeholder?: import('react').ReactNode;
 };
 export type ProviderType = import('react').FC<ProviderPropsType>;
 export type AppContextValueType = {

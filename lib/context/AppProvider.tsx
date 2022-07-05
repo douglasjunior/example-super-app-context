@@ -1,10 +1,16 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import {AppContextValueType, LoginType, ProviderType} from '../types';
 import AppContext from './AppContext';
+import AppContextSetup from './AppContextSetup';
 
 const DEFAULT_INITIAL_LOGIN = {};
 
-const AppProvider: ProviderType = ({children, initialLogin}) => {
+const AppProvider: ProviderType = ({
+  children,
+  login: initialLogin,
+  config,
+  placeholder,
+}) => {
   const [login, setLogin] = useState<LoginType>(
     initialLogin || DEFAULT_INITIAL_LOGIN,
   );
@@ -23,7 +29,13 @@ const AppProvider: ProviderType = ({children, initialLogin}) => {
     };
   }, [login, logout]);
 
-  return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={value}>
+      <AppContextSetup config={config} placeholder={placeholder}>
+        {children}
+      </AppContextSetup>
+    </AppContext.Provider>
+  );
 };
 
 export default AppProvider;
